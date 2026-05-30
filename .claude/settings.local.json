@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /Users/yangdi/hacks/.env*)",
+      "Bash(export PATH=\"/usr/local/bin:/opt/homebrew/bin:$PATH\")",
+      "Read(//Users/yangdi/.nvm/versions/**)",
+      "Read(//Users/yangdi/.volta/bin/**)",
+      "Read(//Users/yangdi/.fnm/**)",
+      "Read(//Users/yangdi/**)",
+      "Bash(source /etc/profile)",
+      "Bash(source ~/.zshenv)",
+      "Bash(/Users/yangdi/hacks/node_modules/.bin/../../../.volta/bin/npm --version)",
+      "Bash(find / -name npm -type f 2)",
+      "Bash(/dev/null -maxdepth 6)",
+      "Bash(export PATH=\"/Users/yangdi/hacks/.tooling/node/bin:$PATH\")",
+      "Bash(npm install:*)",
+      "Bash(PATH=\"/Users/yangdi/hacks/.tooling/node/bin:$PATH\" npx tsc --noEmit)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(kill -HUP 3705)",
+      "Bash(curl -s http://30.9.208.232:8000/health)",
+      "Bash(curl -s http://30.9.208.232:8000/docs)",
+      "WebFetch(domain:30.9.208.232)",
+      "Bash(curl -s --connect-timeout 3 http://30.9.208.232:8000/docs)",
+      "Bash(python3 -c \"import fastapi; import uvicorn; import pydantic; print\\(''all deps available''\\)\")",
+      "Bash(pip3 install:*)",
+      "Bash(curl -s -X POST http://localhost:3001/api/analyze-market-entry -H \"Content-Type: application/json\" -d '{:*)",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(''''score:'''', d[''''readinessScore'''']\\); print\\(''''checklist count:'''', len\\(d[''''checklist'''']\\)\\); print\\(''''risks count:'''', len\\(d[''''risks'''']\\)\\); print\\(''''localization count:'''', len\\(d[''''localization'''']\\)\\); print\\(''''tiktok count:'''', len\\(d[''''tiktokActions'''']\\)\\)\")",
+      "Bash(kill 5826)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(''''score:'''', d[''''readinessScore'''']\\); print\\(''''checklist:'''', len\\(d[''''checklist'''']\\)\\); print\\(''''risks:'''', len\\(d[''''risks'''']\\)\\); print\\(''''loc:'''', len\\(d[''''localization'''']\\)\\); print\\(''''tiktok:'''', len\\(d[''''tiktokActions'''']\\)\\); print\\(''''summary:'''', d[''''advisorExport''''][''''executiveSummary''''][:80]\\)\")",
+      "Bash(kill 6341)",
+      "Bash(python3 -c \":*)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git reset:*)"
+    ]
+  }
+}
