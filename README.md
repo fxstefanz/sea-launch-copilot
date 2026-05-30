@@ -1,31 +1,88 @@
-# SEA Launch Copilot（Hackathon Demo）
+# SEA Launch Copilot — Hackathon Demo
 
-面向 SME 的 AI 工作台 Demo：帮助品牌以 TikTok-first 策略进入东南亚市场（Demo 场景：湖南菜/中餐品牌进入新加坡）。
+AI workbench helping SME brands enter Singapore via a TikTok-first strategy. Demo scenario: chili sauce brand from China entering Singapore.
 
-## 本地运行
+## Architecture
+
+```
+Frontend (React/Vite :5173)
+    ↓
+Backend (Express :3001)  →  RAG API (FastAPI :8000)  →  Mock fallback
+```
+
+The backend calls the RAG API first. If unavailable, it falls back to Claude API, then to built-in mock data.
+
+## Quick Start
+
+### 1. Clone and install
 
 ```bash
+git clone https://github.com/fxstefanz/sea-launch-copilot.git
+cd sea-launch-copilot
 npm install
+cp .env.example .env
+```
+
+### 2. Start the RAG API backend (Python)
+
+```bash
+cd rag-api
+pip install -r requirements.txt
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+Keep this running in a separate terminal. Verify it works:
+```bash
+curl http://localhost:8000/docs
+```
+
+### 3. Start the frontend + Node backend
+
+In another terminal (from the project root):
+
+```bash
 npm run dev
 ```
 
-前端：`http://localhost:5173/`  
-后端：`http://localhost:3001/`
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:3001
 
-## Demo 工作流
+### 4. Environment variables
 
-- 首页就是 Intake + Dashboard 工作台
-- 填写/预填业务信息 → 点击 Analyze Market Entry
-- 默认调用 `POST /api/analyze-market-entry`（后端目前返回 mock 结果）
-- UI 展示：Readiness Score、Checklist、Risk Register、Localization & TikTok Launch Pack、Advisor-Ready Export
+Edit `.env` if needed:
 
-## Mock / API 切换
-
-前端通过环境变量控制数据源：
-- `VITE_DATA_MODE=api`（默认）：走后端 `/api/analyze-market-entry`
-- `VITE_DATA_MODE=mock`：前端直接使用 mock JSON（不依赖后端）
-
-示例：
-```bash
-VITE_DATA_MODE=mock npm run dev
 ```
+PARTNER_API_URL=http://localhost:8000   # RAG API address
+ANTHROPIC_API_KEY=sk-ant-...            # Optional Claude fallback
+```
+
+## Data flow
+
+| Priority | Source | When used |
+|----------|--------|-----------|
+| 1st | RAG API (`rag-api/`) | RAG service running on port 8000 |
+| 2nd | Claude API | `ANTHROPIC_API_KEY` set and RAG unavailable |
+| 3rd | Mock data | Both APIs unavailable |
+
+## Project structure
+
+```
+├── src/               # React frontend
+├── api/               # Express backend
+├── shared/            # Shared TypeScript types + mock data
+├── rag-api/           # Python FastAPI RAG backend
+│   ├── app/
+│   │   ├── main.py
+│   │   ├── schemas.py
+│   │   └── rag/
+│   └── requirements.txt
+└── .env.example
+```
+
+## Roles
+
+| Role | Focus |
+|------|-------|
+| Founder | Full overview — readiness score, all risks, advisor export |
+| Accountant | Tax, finance & compliance tasks |
+| Localization/Growth | Localization recommendations & TikTok action plan |
