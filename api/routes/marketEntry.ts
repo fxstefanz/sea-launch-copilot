@@ -162,14 +162,14 @@ function adaptPartnerResponse(partnerData: any): MarketEntryAnalysis {
     advisorExport: {
       executiveSummary: executiveSummary || getMockMarketEntryAnalysis().advisorExport.executiveSummary,
       keyDecisions: [
-        '进口路径：自行申请 SFA 许可 vs 通过本地分销商/IOR 代理进口',
-        'GST 注册策略与关税估值模型确认',
-        '产品标签全面改造：英文、过敏原、营养声明合规',
-        'TikTok 内容合规红线与审核流程建立',
-        '数据隐私 PDPA 合规策略',
+        'Import pathway: apply for SFA permit directly vs use a local distributor / IOR',
+        'GST registration strategy and customs duty valuation model',
+        'Full label overhaul: English, allergens, nutrition claim compliance',
+        'TikTok content compliance playbook and review process',
+        'Data privacy (PDPA) compliance strategy',
       ],
       appendixNotes: [
-        `数据来源：SEA Launch Copilot RAG Pipeline (${partnerData.report_version || 'demo'})`,
+        `Source: SEA Launch Copilot RAG Pipeline (${partnerData.report_version || 'demo'})`,
         ...citations.map((c: any) => `[${c.id}] ${c.title}${c.url ? ' - ' + c.url : ''}`),
         partnerData.disclaimer || '',
       ].filter(Boolean),

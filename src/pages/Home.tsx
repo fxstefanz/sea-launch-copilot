@@ -5,6 +5,7 @@ import { IntakeForm } from "@/pages/dashboard/IntakeForm"
 import { LaunchPackSection } from "@/pages/dashboard/LaunchPackSection"
 import { ReadinessSummary } from "@/pages/dashboard/ReadinessSummary"
 import { RiskSection } from "@/pages/dashboard/RiskSection"
+import { ChatBot } from "@/components/ChatBot"
 import { useMarketEntryStore } from "@/features/marketEntry/store"
 import { roleMeta } from "@/features/marketEntry/roleMeta"
 
@@ -59,11 +60,12 @@ export default function Home() {
           </div>
         )}
       </div>
+      <ChatBot />
     </div>
   )
 }
 
-/** Founder: 总览全局 — Checklist（全部）+ Risk + Export */
+/** Founder: full overview — Checklist (all) + Risk + Export */
 function FounderView() {
   return (
     <>
@@ -74,7 +76,7 @@ function FounderView() {
   )
 }
 
-/** Accountant: 税务与财务 — Checklist（Tax/Finance/Compliance）+ Risk */
+/** Accountant: tax & finance — Checklist (Tax/Finance/Compliance) + Risk */
 function AccountantView() {
   return (
     <>
@@ -84,7 +86,7 @@ function AccountantView() {
   )
 }
 
-/** Growth/Localization: 在地化与增长 — Launch Pack + Checklist（Localization/TikTok） */
+/** Growth/Localization: localization & growth — Launch Pack + Checklist (Localization/TikTok) */
 function GrowthView() {
   return (
     <>

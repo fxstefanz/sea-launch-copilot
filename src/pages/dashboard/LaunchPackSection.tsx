@@ -52,7 +52,7 @@ export function LaunchPackSection() {
   const phases: TikTokAction["phase"][] = ["Week0", "Week1", "Week2", "AlwaysOn"]
 
   return (
-    <Card className="overflow-hidden" id="launch-pack">
+    <Card className="overflow-hidden border-[color:var(--accent)] bg-gradient-to-br from-[color:color-mix(in_oklab,var(--accent)_8%,var(--bg))] to-[color:var(--bg)]" id="launch-pack">
       <CardHeader
         title="Localization & TikTok Launch Pack"
         subtitle="Recommendations turned into deliverable actions — content, creatives, distribution & SOPs"

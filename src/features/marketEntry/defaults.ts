@@ -6,7 +6,7 @@ export const emptyIntake: MarketEntryIntake = {
   industry: "F&B",
   originCountry: "China",
   targetMarket: "Singapore",
-  cuisineType: "辣椒酱 / Chili Sauce",
+  cuisineType: "Chili Sauce",
   pricePositioning: "mid",
   businessModel: "hybrid",
   monthlyBudgetSgd: 30000,
@@ -17,12 +17,12 @@ export const emptyIntake: MarketEntryIntake = {
 }
 
 export const demoIntake: MarketEntryIntake = {
-  companyName: "湘辣记食品有限公司",
-  brandName: "湘辣记",
+  companyName: "Xiang La Ji Food Co., Ltd.",
+  brandName: "Xiang La Ji",
   industry: "F&B",
   originCountry: "China",
   targetMarket: "Singapore",
-  cuisineType: "辣椒酱 / Chili Sauce",
+  cuisineType: "Chili Sauce",
   pricePositioning: "mid",
   businessModel: "hybrid",
   monthlyBudgetSgd: 35000,

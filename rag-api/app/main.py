@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from .rag.pipeline import RagPipeline
-from .schemas import BusinessContext, MarketEntryReport
+from .schemas import BusinessContext, ChatRequest, ChatResponse, MarketEntryReport
 
 
 app = FastAPI(
@@ -39,3 +39,15 @@ def market_entry_report(payload: BusinessContext) -> MarketEntryReport:
     """
 
     return pipeline.run(payload)
+
+
+@app.post("/v1/chat", response_model=ChatResponse)
+def chat(payload: ChatRequest) -> ChatResponse:
+    """
+    RAG chat assistant: answers market-entry questions using the demo knowledge pack.
+
+    Guardrail: first-pass prep assistant; not legal/tax advice.
+    """
+
+    result = pipeline.answer(message=payload.message, context_title=payload.context_title)
+    return ChatResponse(**result)

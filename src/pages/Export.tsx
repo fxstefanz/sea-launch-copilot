@@ -21,8 +21,8 @@ export default function Export() {
       <div className="min-h-dvh bg-[color:var(--bg)] px-4 py-10 text-[color:var(--fg)]">
         <div className="mx-auto max-w-[960px]">
           <div className="rounded-xl border border-[color:var(--border)] bg-[color:var(--surface)] p-6">
-            <div className="text-sm font-semibold">暂无可导出的分析结果</div>
-            <div className="mt-1 text-xs text-[color:var(--muted)]">返回首页完成 Analyze Market Entry 后再导出。</div>
+            <div className="text-sm font-semibold">No analysis available to export yet</div>
+            <div className="mt-1 text-xs text-[color:var(--muted)]">Go back to the workspace and run Analyze Market Entry first.</div>
             <div className="mt-4">
               <Link to="/">
                 <Button variant="primary">

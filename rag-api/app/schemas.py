@@ -44,6 +44,27 @@ class BusinessContext(BaseModel):
     )
 
 
+class ChatRequest(BaseModel):
+    """Request payload for the RAG chat assistant."""
+
+    message: str = Field(..., description="User's question.")
+    context_title: str | None = Field(
+        default=None, description="Optional context, e.g. a checklist item title the user is asking about."
+    )
+    brand_name: str | None = Field(default=None, description="Optional brand name for personalization.")
+
+
+class ChatSource(BaseModel):
+    id: str
+    title: str
+    url: str | None = None
+
+
+class ChatResponse(BaseModel):
+    reply: str
+    sources: list[ChatSource] = Field(default_factory=list)
+
+
 class ChecklistItem(BaseModel):
     area: str = Field(..., description="Category/area, e.g. 'Food safety licensing'.")
     item: str = Field(..., description="Actionable checklist item.")

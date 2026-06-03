@@ -91,7 +91,7 @@ export function ReadinessSummary() {
 
   if (status === "loading") {
     return (
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden border-2 border-[color:var(--accent)] bg-gradient-to-b from-[color:color-mix(in_oklab,var(--accent)_22%,var(--surface))] to-[color:var(--surface)] shadow-[0_4px_28px_color-mix(in_oklab,var(--accent)_25%,transparent)]">
         <CardHeader title="AI Readiness Dashboard" subtitle="Generating: score, checklist, risk register & action plan" />
         <CardBody className="space-y-4">
           <div className="grid grid-cols-2 gap-3">
@@ -107,7 +107,7 @@ export function ReadinessSummary() {
 
   if (status === "error") {
     return (
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden border-2 border-[color:var(--accent)] bg-gradient-to-b from-[color:color-mix(in_oklab,var(--accent)_22%,var(--surface))] to-[color:var(--surface)] shadow-[0_4px_28px_color-mix(in_oklab,var(--accent)_25%,transparent)]">
         <CardHeader title="AI Readiness Dashboard" subtitle="Request failed — please try again" />
         <CardBody>
           <div className="flex items-start gap-3 rounded-xl border border-[color:var(--border)] bg-[color:var(--surface-2)] p-4">
@@ -124,7 +124,7 @@ export function ReadinessSummary() {
 
   if (!analysis) {
     return (
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden border-2 border-[color:var(--accent)] bg-gradient-to-b from-[color:color-mix(in_oklab,var(--accent)_22%,var(--surface))] to-[color:var(--surface)] shadow-[0_4px_28px_color-mix(in_oklab,var(--accent)_25%,transparent)]">
         <CardHeader title="AI Readiness Dashboard" subtitle="Click Analyze Market Entry to generate your report" />
         <CardBody className="space-y-4">
           <div className="rounded-xl border border-dashed border-[color:var(--border)] bg-[color:var(--surface)] px-4 py-8 text-center">
@@ -154,7 +154,7 @@ export function ReadinessSummary() {
   const myCompleted = analysis.checklist.filter((c) => c.ownerRole === activeRole && c.status === "done").length
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden border-2 border-[color:var(--accent)] bg-gradient-to-b from-[color:color-mix(in_oklab,var(--accent)_22%,var(--surface))] to-[color:var(--surface)] shadow-[0_4px_28px_color-mix(in_oklab,var(--accent)_25%,transparent)]">
       <CardHeader
         title={`${roleLabel(activeRole)} Dashboard`}
         subtitle={`${roleDescriptions[activeRole]} — my tasks ${myCompleted}/${myTotal}`}

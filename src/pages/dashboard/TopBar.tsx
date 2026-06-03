@@ -27,7 +27,7 @@ export function TopBar() {
   const subtitle = useMemo(() => {
     if (!analysis) return "Chili sauce → Singapore — fill in · analyze · collaborate · export"
     const date = new Date(analysis.generatedAt)
-    return `上次分析：${date.toLocaleString()}`
+    return `Last analyzed: ${date.toLocaleString()}`
   }, [analysis])
 
   return (

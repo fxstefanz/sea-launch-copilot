@@ -42,7 +42,7 @@ export const useMarketEntryStore = create<MarketEntryState>((set, get) => ({
       const analysis = await analyzeMarketEntry(intake)
       set({ analysis, status: "ready" })
     } catch (e) {
-      const message = e instanceof Error ? e.message : "分析失败，请稍后重试"
+      const message = e instanceof Error ? e.message : "Analysis failed, please try again"
       set({ status: "error", error: message })
     }
   },
